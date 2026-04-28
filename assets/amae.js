@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  const STRIPE_URL = 'https://buy.stripe.com/00w9AUgpWb6yci61OA6Na00';
+  const STRIPE_URL = 'https://buy.stripe.com/3cIdRa0qY7UmgymfFq6Na04';
 
   const $ = (q, el = document) => el.querySelector(q);
   const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
