@@ -70,17 +70,23 @@
         <div class="amae-frames">
           <label class="amae-frame-opt is-selected" data-color="negro" data-name="Negro">
             <input type="radio" name="marco" value="Negro" checked>
-            <div class="amae-frame-swatch" style="background:#1a1a1a;"></div>
+            <div class="amae-frame-swatch">
+              <img src="{{ 'frame-negro.jpg' | asset_url }}" alt="Marco Negro" loading="lazy">
+            </div>
             <span class="amae-frame-name">Negro</span>
           </label>
           <label class="amae-frame-opt" data-color="blanco" data-name="Blanco">
             <input type="radio" name="marco" value="Blanco">
-            <div class="amae-frame-swatch" style="background:#f0ece4;box-shadow:0 0 0 1px rgba(17,17,17,.18);"></div>
+            <div class="amae-frame-swatch">
+              <img src="{{ 'frame-blanco.jpg' | asset_url }}" alt="Marco Blanco" loading="lazy">
+            </div>
             <span class="amae-frame-name">Blanco</span>
           </label>
           <label class="amae-frame-opt" data-color="madera" data-name="Madera">
             <input type="radio" name="marco" value="Madera">
-            <div class="amae-frame-swatch" style="background:linear-gradient(135deg,#A07850,#7A5A38);"></div>
+            <div class="amae-frame-swatch">
+              <img src="{{ 'frame-madera.jpg' | asset_url }}" alt="Marco Madera" loading="lazy">
+            </div>
             <span class="amae-frame-name">Madera</span>
           </label>
         </div>
@@ -283,17 +289,23 @@
             <div class="amae-form-frames">
               <label class="amae-form-frame is-sel" data-color="negro" id="ff-negro">
                 <input type="radio" name="conf_marco" value="Negro" checked>
-                <div class="ff-swatch" style="background:#1a1a1a;"></div>
+                <div class="ff-circle">
+                  <img src="{{ 'frame-negro.jpg' | asset_url }}" alt="Marco Negro" loading="lazy">
+                </div>
                 <div class="ff-name">Negro</div>
               </label>
               <label class="amae-form-frame" data-color="blanco" id="ff-blanco">
                 <input type="radio" name="conf_marco" value="Blanco">
-                <div class="ff-swatch" style="background:#f0ece4;box-shadow:0 0 0 1px rgba(17,17,17,.18);"></div>
+                <div class="ff-circle">
+                  <img src="{{ 'frame-blanco.jpg' | asset_url }}" alt="Marco Blanco" loading="lazy">
+                </div>
                 <div class="ff-name">Blanco</div>
               </label>
               <label class="amae-form-frame" data-color="madera" id="ff-madera">
                 <input type="radio" name="conf_marco" value="Madera">
-                <div class="ff-swatch" style="background:linear-gradient(135deg,#A07850,#7A5A38);"></div>
+                <div class="ff-circle">
+                  <img src="{{ 'frame-madera.jpg' | asset_url }}" alt="Marco Madera" loading="lazy">
+                </div>
                 <div class="ff-name">Madera</div>
               </label>
             </div>

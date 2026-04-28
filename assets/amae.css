@@ -157,24 +157,44 @@ h1,h2,h3,h4 { margin: 0; }
 }
 .amae-price-sub { font-size: 12px; color: var(--ink-55); margin-top: 3px; }
 
-/* Frame selector */
+/* Frame selector — foto circular */
 .amae-label { font-size: 12px; color: var(--ink-55); margin-bottom: 8px; }
 .amae-label strong { color: var(--ink); font-weight: 500; }
-.amae-frames { display: flex; gap: 10px; flex-wrap: wrap; }
+.amae-frames { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
 .amae-frame-opt {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  cursor: pointer; position: relative;
 }
 .amae-frame-opt input { position: absolute; opacity: 0; pointer-events: none; }
 .amae-frame-swatch {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 2px solid transparent;
-  transition: border-color .2s, transform .2s;
-  box-shadow: 0 0 0 1px rgba(17,17,17,.12);
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2.5px solid transparent;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(17,17,17,.12);
+  background: #f0ece4;
 }
-.amae-frame-opt:hover .amae-frame-swatch { transform: scale(1.1); }
-.amae-frame-opt.is-selected .amae-frame-swatch { border-color: var(--granate); box-shadow: 0 0 0 1px var(--granate), 0 0 0 3px rgba(162,74,92,.15); }
-.amae-frame-name { font-size: 11px; color: var(--ink-55); }
+.amae-frame-swatch img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; border-radius: 50%;
+  /* zoom sobre la esquina del marco para que se vea bien en círculo */
+  object-position: 30% 30%;
+}
+.amae-frame-opt:hover .amae-frame-swatch { transform: scale(1.08); box-shadow: 0 4px 14px rgba(17,17,17,.18); }
+.amae-frame-opt.is-selected .amae-frame-swatch {
+  border-color: var(--granate);
+  box-shadow: 0 0 0 3px rgba(162,74,92,.2), 0 4px 12px rgba(17,17,17,.14);
+}
+.amae-frame-opt.is-selected::after {
+  content: '✓';
+  position: absolute; top: -4px; right: -4px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--granate); color: #fff;
+  font-size: 10px; font-weight: 700;
+  display: grid; place-items: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.amae-frame-name { font-size: 11px; color: var(--ink-55); letter-spacing: .04em; }
 .amae-frame-opt.is-selected .amae-frame-name { color: var(--granate); font-weight: 500; }
 
 /* Quantity */
@@ -390,24 +410,41 @@ h1,h2,h3,h4 { margin: 0; }
 .amae-step-ttl { font-family: var(--serif); font-weight: 500; font-size: 20px; color: var(--granate-deep); line-height: 1.2; }
 .amae-step-hint { margin-left: auto; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-35); }
 
-/* Frame picker (in form) */
-.amae-form-frames { display: flex; gap: 14px; flex-wrap: wrap; }
+/* Frame picker (in configurador) — fotos circulares grandes */
+.amae-form-frames { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
 .amae-form-frame {
-  flex: 1; min-width: 90px;
-  padding: 16px 12px; text-align: center;
-  background: var(--cream-soft); border: 1px solid var(--ink-08);
-  border-radius: 12px; cursor: pointer;
-  transition: all .2s;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  cursor: pointer; position: relative; padding: 4px;
 }
 .amae-form-frame input { position: absolute; opacity: 0; pointer-events: none; }
-.amae-form-frame:hover { border-color: var(--rosa-nude); }
-.amae-form-frame.is-sel { border-color: var(--granate); background: #fff; box-shadow: var(--shadow-soft); }
-.amae-form-frame .ff-swatch {
-  width: 32px; height: 32px; border-radius: 50%;
-  margin: 0 auto 8px;
-  box-shadow: 0 0 0 1px rgba(17,17,17,.12);
+.amae-form-frame .ff-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  overflow: hidden; border: 3px solid transparent;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 3px 10px rgba(17,17,17,.12);
+  background: #f0ece4;
+}
+.amae-form-frame .ff-circle img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 30% 30%;
+  border-radius: 50%; display: block;
+}
+.amae-form-frame:hover .ff-circle { transform: scale(1.06); box-shadow: 0 6px 18px rgba(17,17,17,.18); }
+.amae-form-frame.is-sel .ff-circle {
+  border-color: var(--granate);
+  box-shadow: 0 0 0 4px rgba(162,74,92,.18), 0 4px 14px rgba(17,17,17,.12);
+}
+.amae-form-frame.is-sel::after {
+  content: '✓';
+  position: absolute; top: 2px; right: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--granate); color: #fff;
+  font-size: 12px; font-weight: 700;
+  display: grid; place-items: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,.25);
 }
 .amae-form-frame .ff-name { font-size: 13px; font-weight: 500; color: var(--granate-deep); }
+.amae-form-frame.is-sel .ff-name { color: var(--granate); }
 
 /* Email instruction box */
 .amae-email-box {
