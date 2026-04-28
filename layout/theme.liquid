@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  {{ 'amae.css' | asset_url | stylesheet_tag }}
+
+  {%- comment -%} ── Google Analytics 4 ── {%- endcomment -%}
+  {%- if settings.ga4_measurement_id != blank -%}
+  <script>
+    // DataLayer inicializado antes de GA4 para capturar todos los eventos
+    window.dataLayer = window.dataLayer || [];
+    window.amaeGA4Id = {{ settings.ga4_measurement_id | json }};
+    window.amaeGA4Debug = {{ settings.ga4_debug_mode | json }};
+    window.amaeTrackAbandonment = {{ settings.track_cart_abandonment | json }};
+    window.amaeTrackScroll = {{ settings.track_scroll_depth | json }};
+    window.amaeTrackTime = {{ settings.track_time_milestones | json }};
+    window.amaeAbandonmentThreshold = {{ settings.abandonment_threshold_seconds | json }};
+    window.amaeRespectConsent = {{ settings.respect_cookie_consent | json }};
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.ga4_measurement_id }}"></script>
+  <script>
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', {{ settings.ga4_measurement_id | json }}, {
+      'send_page_view': true,
+      'debug_mode': {{ settings.ga4_debug_mode | json }},
+      'cookie_flags': 'SameSite=None;Secure',
+      'anonymize_ip': true
+    });
+  </script>
+  {%- else -%}
+  <script>
+    // GA4 no configurado — tracking desactivado
+    window.amaeGA4Id = null;
+    window.amaeTrackAbandonment = false;
+    window.amaeTrackScroll = false;
+    window.amaeTrackTime = false;
+    window.amaeAbandonmentThreshold = 10;
+    window.amaeRespectConsent = true;
+    window.amaeGA4Debug = false;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+  </script>
+  {%- endif -%}
+
+  {%- comment -%} ── Shopify Customer Privacy (RGPD) ── {%- endcomment -%}
+  <script>
+    // Escucha el consentimiento de Shopify antes de activar tracking
+    window.Shopify = window.Shopify || {};
+    document.addEventListener('shopify:consent-tracking-api:ready', function() {
+      if (window.Shopify.customerPrivacy) {
+        var consent = window.Shopify.customerPrivacy.getTrackingConsent();
+        window.amaeConsentGranted = (consent === 'yes');
+      } else {
+        window.amaeConsentGranted = !window.amaeRespectConsent;
+      }
+    });
+    // Fallback si la API no dispara (entornos sin Shopify)
+    setTimeout(function() {
+      if (window.amaeConsentGranted === undefined) {
+        window.amaeConsentGranted = !window.amaeRespectConsent;
+      }
+    }, 800);
+  </script>
+
+</head>
+<body>
+
+  {{ content_for_layout }}
+
+  <script src="{{ 'amae.js' | asset_url }}" defer></script>
+  <script src="{{ 'amae-analytics.js' | asset_url }}" defer></script>
+
+</body>
+</html>

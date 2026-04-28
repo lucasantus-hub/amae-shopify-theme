@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "amae-section",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

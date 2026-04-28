@@ -1,0 +1,495 @@
+<div class="amae-wrap">
+
+  <!-- ========== NAV ========== -->
+  <nav class="amae-nav" aria-label="Principal">
+    <a href="#top" class="amae-logo"><em>amae</em><sup>⽢え</sup></a>
+    <div class="amae-nav-links">
+      <a href="#como">Cómo funciona</a>
+      <a href="#disenar">Diseñar</a>
+    </div>
+    <a href="#disenar" class="amae-cart">
+      <span class="amae-cart-dot"></span>
+      Diseñar mi cuadro
+    </a>
+  </nav>
+
+  <!-- ========== PRODUCT SECTION ========== -->
+  <div id="top" class="amae-product">
+
+    <!-- GALERÍA -->
+    <div class="amae-gallery">
+      <div class="amae-gallery-main" id="galMain">
+        <div class="gal-placeholder-icon">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+            <rect x="4" y="4" width="48" height="48" rx="8" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
+            <rect x="14" y="14" width="28" height="28" rx="4" fill="currentColor" opacity=".08"/>
+            <circle cx="22" cy="22" r="4" fill="currentColor" opacity=".35"/>
+            <path d="M14 36l10-10 6 6 5-5 7 7" stroke="currentColor" stroke-width="1.5" opacity=".5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="gal-label" id="galLabel">Fondo blanco</span>
+      </div>
+      <div class="amae-gallery-thumbs">
+        <div class="amae-gallery-thumb is-active" data-img="Fondo blanco" onclick="amaeSetImg(this,'Fondo blanco')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/></svg>
+          Blanco
+        </div>
+        <div class="amae-gallery-thumb" data-img="En uso" onclick="amaeSetImg(this,'En uso')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M6 5l5 3-5 3V5z" fill="currentColor"/></svg>
+          En uso
+        </div>
+        <div class="amae-gallery-thumb" data-img="Packaging" onclick="amaeSetImg(this,'Packaging')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 5l6-3 6 3v6l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.2"/></svg>
+          Packaging
+        </div>
+        <div class="amae-gallery-thumb" data-img="Vídeo" onclick="amaeSetImg(this,'Vídeo')">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M11 6l4-2v6l-4-2V6z" stroke="currentColor" stroke-width="1.2"/></svg>
+          Vídeo
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="amae-info">
+      <div>
+        <div class="amae-product-tag">Cuadro personalizado</div>
+        <h1 class="amae-product-title">El regalo que tu madre va a guardar toda la vida</h1>
+        <span class="amae-badge">Entrega en 48-72h</span>
+      </div>
+
+      <div>
+        <div class="amae-price-row">
+          <span class="amae-price">25,90€</span>
+        </div>
+        <div class="amae-price-sub">IVA y envío incluidos</div>
+      </div>
+
+      <!-- Frame color selector -->
+      <div>
+        <div class="amae-label">Color del marco — <strong id="frameLabel">Negro</strong></div>
+        <div class="amae-frames">
+          <label class="amae-frame-opt is-selected" data-color="negro" data-name="Negro">
+            <input type="radio" name="marco" value="Negro" checked>
+            <div class="amae-frame-swatch" style="background:#1a1a1a;"></div>
+            <span class="amae-frame-name">Negro</span>
+          </label>
+          <label class="amae-frame-opt" data-color="blanco" data-name="Blanco">
+            <input type="radio" name="marco" value="Blanco">
+            <div class="amae-frame-swatch" style="background:#f0ece4;box-shadow:0 0 0 1px rgba(17,17,17,.18);"></div>
+            <span class="amae-frame-name">Blanco</span>
+          </label>
+          <label class="amae-frame-opt" data-color="madera" data-name="Madera">
+            <input type="radio" name="marco" value="Madera">
+            <div class="amae-frame-swatch" style="background:linear-gradient(135deg,#A07850,#7A5A38);"></div>
+            <span class="amae-frame-name">Madera</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div>
+        <div class="amae-label">Cantidad</div>
+        <div class="amae-qty-row">
+          <button class="amae-qty-btn" type="button" onclick="amaeQty(-1)" aria-label="Reducir cantidad">−</button>
+          <div class="amae-qty-val" id="amaeQtyVal">1</div>
+          <button class="amae-qty-btn" type="button" onclick="amaeQty(1)" aria-label="Aumentar cantidad">+</button>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="amae-ctas">
+        <button class="amae-btn-design" id="btnDisenar" type="button">
+          Diseñar mi cuadro
+          <svg width="16" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M12 1l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="amae-btn-cart" type="button" id="btnCart">Añadir al carrito</button>
+      </div>
+
+      <!-- Payment -->
+      <div class="amae-pagos">
+        <span>Pago seguro:</span>
+        <span class="amae-pago-pill">Visa</span>
+        <span class="amae-pago-pill">Mastercard</span>
+        <span class="amae-pago-pill">PayPal</span>
+        <span class="amae-pago-pill">Bizum</span>
+      </div>
+
+      <!-- Shipping -->
+      <div class="amae-shipping">
+        <div class="amae-shipping-row">
+          <span>Envío estándar</span>
+          <strong>Incluido · 48-72h</strong>
+        </div>
+        <hr>
+        <div class="amae-urgencia">
+          <span>⏰</span>
+          <span>Pedidos antes del miércoles llegan para el Día de la Madre</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== VÍDEO ========== -->
+  <div class="amae-section">
+    <h2 class="amae-section-title">Mira la magia</h2>
+    <div class="amae-video-grid">
+      <div class="amae-video-card amae-video-loop">
+        <div class="amae-play-btn" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg>
+        </div>
+        <div class="amae-video-desc">Clip en bucle<br>sin sonido</div>
+        <div class="amae-video-tag">🔁 Autoplay</div>
+      </div>
+      <div class="amae-video-card amae-video-full">
+        <div class="amae-play-btn" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg>
+        </div>
+        <div class="amae-video-desc">La reacción completa · con sonido · 45 seg</div>
+        <div class="amae-video-tag">▶ Ver vídeo</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== CÓMO FUNCIONA ========== -->
+  <div id="como" class="amae-section">
+    <h2 class="amae-section-title">¿Cómo funciona?</h2>
+    <div class="amae-steps-grid">
+      <div class="amae-step-card">
+        <div class="amae-step-num">01</div>
+        <div class="amae-step-ttl">Tú diseñas</div>
+        <div class="amae-step-desc">Elige el marco, sube tus fotos y escribe tu mensaje personal</div>
+      </div>
+      <div class="amae-step-card">
+        <div class="amae-step-num">02</div>
+        <div class="amae-step-ttl">Nosotros lo enviamos</div>
+        <div class="amae-step-desc">Lo fabricamos y lo enviamos listo para regalar en 48-72 horas</div>
+      </div>
+      <div class="amae-step-card">
+        <div class="amae-step-num">03</div>
+        <div class="amae-step-ttl">Ella lo descubre</div>
+        <div class="amae-step-desc">Acerca el móvil al cuadro y aparece tu página personal. Sin app.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== DESCRIPCIÓN ========== -->
+  <div class="amae-section">
+    <h2 class="amae-section-title">Descripción</h2>
+    <p class="amae-desc-text">
+      Un cuadro físico de alta calidad con una placa invisible integrada. Cuando tu madre acerca el móvil,
+      aparece una página web personalizada con tus fotos, un vídeo y el mensaje que tú le hayas escrito.
+      No necesita descargar ninguna app ni saber de tecnología. Solo acercar el móvil.
+    </p>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== GARANTÍA ========== -->
+  <div class="amae-section">
+    <h2 class="amae-section-title">Garantía y devoluciones</h2>
+    <div class="amae-garantia-grid">
+      <div class="amae-garantia-card">
+        <strong>Garantía 2 años</strong>
+        <span>En materiales, fabricación y placa NFC. Si algo falla, lo resolvemos.</span>
+      </div>
+      <div class="amae-garantia-card">
+        <strong>Envío seguro</strong>
+        <span>Packaging reforzado para que llegue en perfectas condiciones.</span>
+      </div>
+      <div class="amae-garantia-card">
+        <strong>Soporte en español</strong>
+        <span>Por WhatsApp y email en horario de oficina. Respondemos en menos de 24h.</span>
+      </div>
+      <div class="amae-garantia-card">
+        <strong>Fabricación garantizada</strong>
+        <span>Si hay un error nuestro, lo reponemos sin coste y sin preguntas.</span>
+      </div>
+      <div class="amae-garantia-card full">
+        <strong>Sobre las devoluciones</strong>
+        <span>Al ser un producto fabricado a medida para ti, no admitimos devoluciones por cambio de opinión, tal como establece la normativa europea de comercio electrónico. Sí cubrimos cualquier incidencia por error de fabricación o daño en el envío.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== RESEÑAS ========== -->
+  <div class="amae-section">
+    <div class="amae-rating-summary">
+      <div class="amae-rating-big">4.9</div>
+      <div>
+        <div class="amae-stars">★★★★★</div>
+        <div class="amae-rating-info">127 reseñas verificadas</div>
+      </div>
+    </div>
+    <div class="amae-resenas">
+      <div class="amae-resena">
+        <div class="amae-resena-top">
+          <span class="amae-resena-autor">María G.</span>
+          <span class="amae-resena-stars">★★★★★</span>
+        </div>
+        <div class="amae-resena-texto">"Mi madre lloró cuando acercó el móvil y vio el vídeo de toda la familia. Jamás había visto un regalo así. Lo recomiendo 100%."</div>
+      </div>
+      <div class="amae-resena">
+        <div class="amae-resena-top">
+          <span class="amae-resena-autor">Carlos M.</span>
+          <span class="amae-resena-stars">★★★★★</span>
+        </div>
+        <div class="amae-resena-texto">"Tenía dudas de cómo funcionaba pero es muy sencillo. El proceso de diseño es fácil y el resultado es precioso. Llegó en 2 días."</div>
+      </div>
+      <div class="amae-resena">
+        <div class="amae-resena-top">
+          <span class="amae-resena-autor">Laura P.</span>
+          <span class="amae-resena-stars">★★★★☆</span>
+        </div>
+        <div class="amae-resena-texto">"La calidad del cuadro es muy buena y el packaging viene muy bien protegido. El único pero es que tardé un poco en entender cómo subir las fotos."</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="amae-divider">
+
+  <!-- ========== CONFIGURADOR ========== -->
+  <div id="disenar" class="amae-configurator">
+    <div class="amae-config-inner">
+
+      <div class="amae-config-header">
+        <h2 class="amae-section-title">Compón tu <em style="font-style:italic;color:var(--rosa-nude)">amae</em>.</h2>
+        <p>Personaliza el cuadro paso a paso. Recibiremos tu pedido y lo fabricaremos en 48-72h.</p>
+      </div>
+
+      <div class="amae-config-grid">
+
+        <!-- FORM -->
+        <div class="amae-form-steps" id="amaeForm">
+
+          <!-- Paso 1: Marco -->
+          <div class="amae-step" data-step="1">
+            <div class="amae-step-head">
+              <div class="amae-step-ind">
+                <span class="snum">1</span>
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.5 3L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="amae-step-ttl">Elige el marco</h3>
+              <span class="amae-step-hint">Requerido</span>
+            </div>
+            <div class="amae-form-frames">
+              <label class="amae-form-frame is-sel" data-color="negro" id="ff-negro">
+                <input type="radio" name="conf_marco" value="Negro" checked>
+                <div class="ff-swatch" style="background:#1a1a1a;"></div>
+                <div class="ff-name">Negro</div>
+              </label>
+              <label class="amae-form-frame" data-color="blanco" id="ff-blanco">
+                <input type="radio" name="conf_marco" value="Blanco">
+                <div class="ff-swatch" style="background:#f0ece4;box-shadow:0 0 0 1px rgba(17,17,17,.18);"></div>
+                <div class="ff-name">Blanco</div>
+              </label>
+              <label class="amae-form-frame" data-color="madera" id="ff-madera">
+                <input type="radio" name="conf_marco" value="Madera">
+                <div class="ff-swatch" style="background:linear-gradient(135deg,#A07850,#7A5A38);"></div>
+                <div class="ff-name">Madera</div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Paso 2: Fotos por email -->
+          <div class="amae-step" data-step="2">
+            <div class="amae-step-head">
+              <div class="amae-step-ind">
+                <span class="snum">2</span>
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.5 3L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="amae-step-ttl">Envía tus fotos y vídeo</h3>
+              <span class="amae-step-hint">Por email</span>
+            </div>
+            <div class="amae-email-box">
+              <h4>Envíanos tus fotos y vídeo por email</h4>
+              <p>
+                Adjunta la <strong>foto de portada del cuadro</strong> (la que se imprime en el exterior),
+                hasta <strong>6 fotos para la galería NFC</strong> y el <strong>vídeo</strong> que quieras
+                incluir en la página que aparece al acercar el móvil.
+              </p>
+              <p>
+                Incluye en el email tu <strong>nombre</strong> y el <strong>número de pedido</strong>
+                que recibirás al finalizar el pago, para que podamos vincular todo correctamente.
+              </p>
+              <a href="mailto:amae.informacion@gmail.com?subject=Fotos%20pedido%20Amae" class="amae-email-link">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                amae.informacion@gmail.com
+              </a>
+              <p class="amae-email-note">Formato aceptado: JPG, PNG, HEIC · Vídeo: MP4, MOV · Máx. 50 MB en total</p>
+            </div>
+          </div>
+
+          <!-- Paso 3: De parte de -->
+          <div class="amae-step" data-step="3">
+            <div class="amae-step-head">
+              <div class="amae-step-ind">
+                <span class="snum">3</span>
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.5 3L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="amae-step-ttl">De parte de</h3>
+              <span class="amae-step-hint">Aparece en el móvil →</span>
+            </div>
+            <div class="amae-field">
+              <label class="amae-field-label" for="fldFrom">Tu nombre o firma</label>
+              <input class="amae-field-input" id="fldFrom" name="de_parte_de" type="text" maxlength="60" placeholder="Ej: Con amor, tus hijos">
+            </div>
+          </div>
+
+          <!-- Paso 4: Textos -->
+          <div class="amae-step" data-step="4">
+            <div class="amae-step-head">
+              <div class="amae-step-ind">
+                <span class="snum">4</span>
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.5 3L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="amae-step-ttl">Textos de la galería</h3>
+              <span class="amae-step-hint">En el móvil →</span>
+            </div>
+            <div class="amae-field">
+              <label class="amae-field-label" for="fldName">A / Nombre de la persona</label>
+              <input class="amae-field-input" id="fldName" name="nombre_destinatario" type="text" maxlength="40" placeholder="Ej: Mamá">
+            </div>
+            <div class="amae-field">
+              <label class="amae-field-label" for="fldMsg">Mensaje del regalo</label>
+              <textarea class="amae-field-textarea" id="fldMsg" name="mensaje" maxlength="400" placeholder="Lo que siempre quisiste decirle pero nunca supiste cómo…"></textarea>
+              <span class="amae-field-count" id="msgCount">0 / 400</span>
+            </div>
+          </div>
+
+          <!-- Paso 5: Email notificaciones -->
+          <div class="amae-step" data-step="5">
+            <div class="amae-step-head">
+              <div class="amae-step-ind">
+                <span class="snum">5</span>
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 7.5l3.5 3L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="amae-step-ttl">Tu email</h3>
+              <span class="amae-step-hint">Opcional</span>
+            </div>
+            <div class="amae-field">
+              <label class="amae-field-label" for="fldEmail">Te avisamos cuando alguien abra tu amae</label>
+              <input class="amae-field-input" id="fldEmail" name="email_notificacion" type="email" placeholder="tu@correo.com">
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="amae-submit-block">
+            <div class="amae-summary-row">
+              <div>
+                <div class="amae-sum-lbl">Tu selección</div>
+                <div class="amae-sum-item" id="sumItem">Amae Frame · Marco Negro</div>
+              </div>
+              <div style="text-align:right">
+                <div class="amae-sum-lbl">Total</div>
+                <div class="amae-sum-price">25,90 €</div>
+              </div>
+            </div>
+            <button type="button" class="amae-btn-submit" id="amaeSubmit">
+              Finalizar y pagar
+              <svg width="17" height="11" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h16M12 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="amae-fineprint">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              Pago seguro con Stripe · IVA y envío incluidos · 48-72h
+            </p>
+          </div>
+
+        </div>
+
+        <!-- VISUALIZER -->
+        <aside class="amae-vis-col" aria-label="Previsualización">
+          <div class="amae-vis-card">
+            <div class="amae-vis-tab">
+              <span class="liveDot"></span>
+              Previsualización en directo
+            </div>
+            <div class="amae-vis-stage">
+
+              <!-- Frame negro -->
+              <div class="physical is-visible" data-physical="negro">
+                <div class="frame-body f-negro" style="width:240px;height:310px;">
+                  <div class="frame-photo-slot" data-slot="frame"><span class="placeholder">·tu foto·</span></div>
+                  <div class="frame-mark">amae</div>
+                </div>
+              </div>
+
+              <!-- Frame blanco -->
+              <div class="physical" data-physical="blanco">
+                <div class="frame-body f-blanco" style="width:240px;height:310px;">
+                  <div class="frame-photo-slot" data-slot="frame"><span class="placeholder">·tu foto·</span></div>
+                  <div class="frame-mark">amae</div>
+                </div>
+              </div>
+
+              <!-- Frame madera -->
+              <div class="physical" data-physical="madera">
+                <div class="frame-body f-madera" style="width:240px;height:310px;">
+                  <div class="frame-photo-slot" data-slot="frame"><span class="placeholder">·tu foto·</span></div>
+                  <div class="frame-mark">amae</div>
+                </div>
+              </div>
+
+              <div class="nfc-ring" id="nfcRing" aria-hidden="true"></div>
+
+              <!-- Phone -->
+              <div class="phone" id="phone">
+                <div class="phone-shell">
+                  <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <div class="phone-status">
+                      <span id="phoneTime">9:41</span>
+                      <span class="phone-signal"><i></i><i></i><i></i><i></i></span>
+                      <span class="phone-battery"><span></span></span>
+                    </div>
+                    <div class="phone-content">
+                      <div class="phone-from" id="phoneFrom">De parte de · tú</div>
+                      <h4 class="phone-title is-empty" id="phoneTitle">Para ti</h4>
+                      <p class="phone-message is-empty" id="phoneMsg">Un mensaje que sólo ella leerá…</p>
+                      <div class="phone-divider">Memoria</div>
+                      <div class="phone-gallery" id="phoneGallery">
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                        <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+                      </div>
+                      <div class="phone-foot">· amae ·</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="amae-vis-foot">
+            <span>NFC · NTAG 216</span>
+            <span class="vf-right" id="visStatus">Componiendo</span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="amae-foot">
+    <span class="foot-logo">amae</span>
+    <span>© 2026 · el refugio de la memoria · hecho en españa</span>
+    <span>⽢え · あまえ</span>
+  </footer>
+
+</div>
+
+{% schema %}
+{
+  "name": "Amae Section",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}
