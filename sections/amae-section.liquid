@@ -4,6 +4,7 @@
   <nav class="amae-nav" aria-label="Principal">
     <a href="#top" class="amae-logo"><em>amae</em><sup>⽢え</sup></a>
     <div class="amae-nav-links">
+      <a href="#videos">Vídeos</a>
       <a href="#como">Cómo funciona</a>
       <a href="#disenar">Diseñar</a>
     </div>
@@ -19,32 +20,25 @@
     <!-- GALERÍA -->
     <div class="amae-gallery">
       <div class="amae-gallery-main" id="galMain">
-        <div class="gal-placeholder-icon">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-            <rect x="4" y="4" width="48" height="48" rx="8" stroke="currentColor" stroke-width="1.5" opacity=".4"/>
-            <rect x="14" y="14" width="28" height="28" rx="4" fill="currentColor" opacity=".08"/>
-            <circle cx="22" cy="22" r="4" fill="currentColor" opacity=".35"/>
-            <path d="M14 36l10-10 6 6 5-5 7 7" stroke="currentColor" stroke-width="1.5" opacity=".5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span class="gal-label" id="galLabel">Fondo blanco</span>
+        <img
+          src="{{ 'dsc-1765.jpg' | asset_url }}"
+          id="galMainImg"
+          alt="Cuadro amae — foto 1"
+          loading="eager"
+        >
       </div>
       <div class="amae-gallery-thumbs">
-        <div class="amae-gallery-thumb is-active" data-img="Fondo blanco" onclick="amaeSetImg(this,'Fondo blanco')">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/></svg>
-          Blanco
+        <div class="amae-gallery-thumb is-active" data-src="{{ 'dsc-1765.jpg' | asset_url }}" data-alt="Cuadro amae — foto 1" onclick="amaeSetImg(this)">
+          <img src="{{ 'dsc-1765.jpg' | asset_url }}" alt="Foto 1" loading="lazy">
         </div>
-        <div class="amae-gallery-thumb" data-img="En uso" onclick="amaeSetImg(this,'En uso')">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M6 5l5 3-5 3V5z" fill="currentColor"/></svg>
-          En uso
+        <div class="amae-gallery-thumb" data-src="{{ 'dsc-1767.jpg' | asset_url }}" data-alt="Cuadro amae — foto 2" onclick="amaeSetImg(this)">
+          <img src="{{ 'dsc-1767.jpg' | asset_url }}" alt="Foto 2" loading="lazy">
         </div>
-        <div class="amae-gallery-thumb" data-img="Packaging" onclick="amaeSetImg(this,'Packaging')">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 5l6-3 6 3v6l-6 3-6-3V5z" stroke="currentColor" stroke-width="1.2"/></svg>
-          Packaging
+        <div class="amae-gallery-thumb" data-src="{{ 'dsc-1770.jpg' | asset_url }}" data-alt="Cuadro amae — foto 3" onclick="amaeSetImg(this)">
+          <img src="{{ 'dsc-1770.jpg' | asset_url }}" alt="Foto 3" loading="lazy">
         </div>
-        <div class="amae-gallery-thumb" data-img="Vídeo" onclick="amaeSetImg(this,'Vídeo')">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M11 6l4-2v6l-4-2V6z" stroke="currentColor" stroke-width="1.2"/></svg>
-          Vídeo
+        <div class="amae-gallery-thumb" data-src="{{ 'dsc-1771.jpg' | asset_url }}" data-alt="Cuadro amae — foto 4" onclick="amaeSetImg(this)">
+          <img src="{{ 'dsc-1771.jpg' | asset_url }}" alt="Foto 4" loading="lazy">
         </div>
       </div>
     </div>
@@ -139,23 +133,51 @@
   <hr class="amae-divider">
 
   <!-- ========== VÍDEO ========== -->
-  <div class="amae-section">
-    <h2 class="amae-section-title">Mira la magia</h2>
+  <div class="amae-section amae-video-section" id="videos">
+    <div class="amae-video-header">
+      <div class="amae-video-pill">✨ Vídeos reales de clientes</div>
+      <h2 class="amae-section-title">Mira la magia</h2>
+      <p class="amae-video-subtitle">Así es como reacciona cuando acercan el móvil al cuadro</p>
+    </div>
     <div class="amae-video-grid">
-      <div class="amae-video-card amae-video-loop">
-        <div class="amae-play-btn" aria-hidden="true">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg>
+
+      <!-- Vídeo 1: autoplay muted loop -->
+      <div class="amae-video-card">
+        <div class="amae-video-badge">🔁 Sin sonido · Autoplay</div>
+        <video
+          class="amae-vid"
+          src="{{ 'amae-video-1.mp4' | asset_url }}"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Vídeo del producto en uso en bucle"
+        ></video>
+        <div class="amae-video-overlay">
+          <div class="amae-video-caption">El momento en que lo descubre</div>
         </div>
-        <div class="amae-video-desc">Clip en bucle<br>sin sonido</div>
-        <div class="amae-video-tag">🔁 Autoplay</div>
       </div>
-      <div class="amae-video-card amae-video-full">
-        <div class="amae-play-btn" aria-hidden="true">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg>
+
+      <!-- Vídeo 2: con controles y sonido -->
+      <div class="amae-video-card amae-video-card--main">
+        <div class="amae-video-badge amae-video-badge--sound">🔊 Con sonido · Pulsa para ver</div>
+        <video
+          class="amae-vid"
+          src="{{ 'amae-video-2.mp4' | asset_url }}"
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Vídeo completo de la reacción con sonido"
+        ></video>
+        <div class="amae-video-overlay amae-video-overlay--main" id="videoOverlay2">
+          <button class="amae-big-play" onclick="amaePlayVideo(this)" aria-label="Reproducir vídeo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5" fill="rgba(255,255,255,0.15)"/><path d="M13 10l10 6-10 6V10z" fill="white"/></svg>
+            <span>La reacción completa</span>
+          </button>
         </div>
-        <div class="amae-video-desc">La reacción completa · con sonido · 45 seg</div>
-        <div class="amae-video-tag">▶ Ver vídeo</div>
       </div>
+
     </div>
   </div>
 

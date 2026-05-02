@@ -17,12 +17,29 @@
     videoUrl: null
   };
 
+  /* ── Video overlay: play on click ── */
+  window.amaePlayVideo = function (btn) {
+    const card = btn.closest('.amae-video-card--main');
+    if (!card) return;
+    const overlay = card.querySelector('.amae-video-overlay--main');
+    const vid = card.querySelector('video');
+    if (overlay) overlay.classList.add('is-hidden');
+    if (vid) { vid.play().catch(() => {}); }
+  };
+
   /* ── Product page: gallery thumbnails ── */
-  window.amaeSetImg = function (el, label) {
+  window.amaeSetImg = function (el) {
     $$('.amae-gallery-thumb').forEach(t => t.classList.remove('is-active'));
     el.classList.add('is-active');
-    const lbl = $('#galLabel');
-    if (lbl) lbl.textContent = label;
+    const mainImg = $('#galMainImg');
+    if (mainImg && el.dataset.src) {
+      mainImg.style.opacity = '0';
+      setTimeout(() => {
+        mainImg.src = el.dataset.src;
+        mainImg.alt = el.dataset.alt || '';
+        mainImg.style.opacity = '1';
+      }, 160);
+    }
   };
 
   /* ── Product page: frame selector (top) ── */
