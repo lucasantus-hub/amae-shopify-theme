@@ -429,7 +429,29 @@ h1,h2,h3,h4 { margin: 0; }
 }
 @media (max-width: 900px) {
   .amae-config-grid { grid-template-columns: 1fr; }
-  .amae-vis-col { order: -1; }
+
+  /* Visualizador arriba del formulario, SIN sticky en móvil */
+  .amae-vis-col {
+    order: -1;
+    position: relative !important;
+    top: auto !important;
+    height: auto;
+  }
+
+  /* Tarjeta más compacta en móvil — no ocupa toda la pantalla */
+  .amae-vis-card {
+    aspect-ratio: 16/9;
+    max-height: 260px;
+  }
+
+  /* El teléfono dentro del visualizador se esconde en móvil
+     (no hay espacio y bloqueaba el marco) */
+  .phone { display: none !important; }
+
+  /* El marco se centra y escala al espacio disponible */
+  .amae-vis-stage { padding: 16px; }
+  .frame-body { width: 160px !important; height: 200px !important; }
+  .physical:not(.is-visible) { display: none; }
 }
 
 /* Steps */
